@@ -18,9 +18,6 @@ app.get('/', (req, res)=> {
 app.get('/about', (req, res)=> {
     res.render('about');
 });
-app.get('/work', (req, res)=> {
-    res.render('work');
-});
 
 
 

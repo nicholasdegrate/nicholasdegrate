@@ -1,11 +1,12 @@
 // header
 #nav-header {
+    min-height: 10vh;
+    max-width: 90%;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
     padding: 0 1em;
-    background-color: color(bg);
     // title name
     .title-name {
         font-weight: 500;
@@ -15,29 +16,32 @@
         }
     }
 
-    #desktop-nav {
-        display: none;
-    }
-
     // hamburger icon
-    #hamburger {
+    #hamburger-container {
         height: 1.3em;
-        width: 1.5em;
-        cursor: pointer;
-        // individual lines
-        .line {
-            background: color(white);
-            height: 2px;
-            width: 100%;
-            margin: .3em 0;
-            // remove the top margin
-            &:nth-child(1) {
-                margin: 0 0 .3em;
+        display: flex;
+        align-items: center;
+        h3 {
+            margin-top: .5em;
+            padding: .5em;
+            text-transform: uppercase;
+            font-size: font(small) - .2em;
+            letter-spacing: .5em;
+            cursor: pointer;
+            align-self: center;
+        }
+        #hamburger {
+            align-self: end;
+            width: 1.5em;
+            cursor: pointer;
+            // individual lines
+            .line {
+                background: color(white);
+                height: 2px;
+                width: 100%;
+                margin: .3em 0;
             }
         }
-    }
-    #mobile {
-        padding: 1em;
     }
     // popup mobile/tablet nav
     .mobile-nav-popup {
@@ -94,7 +98,7 @@
                 a{  
                     font-weight: 200;
                     margin-left: .3em;
-                    color: color(white);
+                    color: color(bg);
                     position: relative;
                     // hover affect
                     &:before {
@@ -122,65 +126,6 @@
 // media 
 @media screen and (min-width: screen(tablet)) {
     #nav-header {
-        // mobile
-        #mobile {
-            display: none;
-        }
-        //desktop
-        #desktop-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1em;
-            ul {
-                li {
-                    display: inline-block;
-                    padding: .5em;
-                  
-                    a{  
-                        color: color(white);
-                        position: relative;
-                        // hover affect
-                        &:before {
-                            position: absolute;
-                            display: block;
-                            height: 3%;
-                            width: 0%;
-                            content: '';
-                            bottom: 0;
-                            left: 0;
-                            background-color:color(white);
-                            opacity: .7;
-                        }
-                        // expands the box around the link
-                        &:hover:before {
-                            width: 100%;
-                            transition: all .3s ease-in;
-                        }
-
-                    }
-                }
-                .last-child {
-                    margin-right: 1em;
-                }
-            }
-            a {
-                button {
-                    height:100%;
-                    padding: .8em 2em;
-                    background-color: rgb(48, 48, 48);
-                    color: color(white);
-                    border: 1px solid rgb(48, 48, 48);
-                    border-radius: 5px;
-
-                    &:hover {
-                        background-color: color(bg);
-                        transition: .5s;
-                        color: color(white);
-                        border: 1px solid rgb(48, 48, 48);
-                    }
-                }
-            }
-        }
+        padding: 0 3em;
     }
 }

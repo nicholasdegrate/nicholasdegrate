@@ -1,45 +1,45 @@
 extends layout
 
 block body
-    #center-header
-        .title-info
-            .title-text
-                h2 SMART &#38; CLEAN DESIGN
-                h5 | Making color come to life
-                p. 
-                    I'm a Full-Stack Engineer ready to constructed an elegent website for you, so you don't have too.
-            .title-img
-                .img-mobile
-                    img(src="img/mainbg.jpg", alt="yellow")
-                .img-right.slice
-                .img-left.slice
-        .social-media
-            ul
-                li
-                    a(href="")
-                        img(src="img/linkedin.png", alt="linkedin")
-                li
-                    a(href="")
-                        img(src="img/github.png", alt="github")
-                a(href="").project-link Project
-    .content-info
-        p.
-            I deliver meaningful and lasting results for my clients by improving the experience of their users. Within a close cooperation with my clients I define, design, and develop truly enjoyable products for people.
-        a(href="/resources") 
-            button View My Resources
-    #work
-        .work-img-container
-            img(src="img/plantie.jpg", alt="plantie website")
-        .work-info-container   
-            h2 Feature Work
-            .work-info-img
-                img(src="img/plantiewebsite.jpg", alt="website")
-                h3 <span>Pla</span>ntie
-            p Website design and development for a boutique plant shop
-            a(href="/work")
-                button View Case Studies
-    #testimony
-        h2 Who I've worked With.
-        ul 
-            li 
-                p Legacy Rebuild Properties
+    main
+        section.page.photographer
+            .project-detail
+                h1 Legacy Rebuild Properties
+                h3 Real Estate
+                p 08/23/2020
+            .center-page-left
+                img(src='./img/mainbg.jpg').model-left
+            .center-page-right
+                img(src='./img/mainbg.jpg').model-left
+            .center-info-project
+                .center-info-project-container
+                    .center-header-container-wrapper
+                        h2 Legacy
+                        p view all
+            .center-info-project.center-info-project-two
+
+        section.page.plantie
+            .project-detail
+                h1 Justice Brun
+                h2 Photographer
+                p 02/08/2018
+            .center-page-left
+                img(src='./img/plantie.jpg').model-left
+            .center-page-right
+                img(src='./img/plantie.jpg').model-left
+
+        section.page.hotel
+            .project-detail
+                h1 Nicholas Degrate
+                h2 Photographer
+                p 02/08/2018
+            .center-page-left
+                img(src='./img/mainbg.jpg').model-left
+            .center-page-right
+                img(src='./img/mainbg.jpg').model-left
+        
+        //- pagenation section
+        .pagenation
+            .circle.active
+            .circle
+            .circle
