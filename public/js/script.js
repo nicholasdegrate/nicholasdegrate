@@ -12,7 +12,7 @@ function onReady(callback) {
             // * callback.call() write a method to be used on a different object
             callback.call(this);
         }
-    }, 2000);
+    }, 1000);
 }
   
 /* 
@@ -28,23 +28,6 @@ onReady(function() {
     setVisible('#main-wrapper', true);
     setVisible('#loading', false);
 });
-
-
-
-// navbar 
-const hamburger = document.querySelector('#hamburger');
-const mobileNav = document.querySelector('.mobile-nav-popup');
-const closeNav = document.querySelector('.close-btn');
-
-hamburger.addEventListener('click', () =>{
-    mobileNav.style.display = 'block';
-});
-
-closeNav.addEventListener('click', () =>{
-    mobileNav.style.display = 'none';
-});
-
-
 
 
 // pagination
@@ -64,8 +47,8 @@ function init() {
     let scrollSlide = 0;
     
     // scrolling effect
-    document.addEventListener('touchmove', throttle(scrollchange, 500));
-    document.addEventListener('wheel', throttle(scrollchange, 500));
+    document.addEventListener('touchmove', throttle(scrollchange, 1500));
+    document.addEventListener('wheel', throttle(scrollchange, 1500));
     
     function scrollchange(e) {
         if (e.deltaY > 0) {
@@ -134,19 +117,41 @@ function init() {
         const currentRight = currentIndex.querySelector('.center-page-right .model-right');
         const nextText = nextIndex.querySelector('.project-detail');
         const body = document.querySelector('#main-wrapper');
-    
+        const sidePlant = document.querySelector('.outer-img');
+        const centerText = document.querySelectorAll('.center-header-container-wrapper h2');
+        const navBackground = document.querySelector('.nav-links');
         let tl = gsap.timeline();
 
-        tl.fromTo(currentLeft, 0.3, {y: '-10%'}, {y: '-100%'})
-          .fromTo(currentRight, 0.3, {y: '10%'}, {y: '-100%'}, '-=0.2')
+        tl.fromTo(currentLeft, 0.3, {y: '0%'}, {y: '150%'})
+          .fromTo(currentRight, 0.3, {y: '0%'}, {y: '-150%'}, '-=0.2')
           .to(body, 0.3, {backgroundColor: backgrounds[pageIndex]})
+          .to(navBackground, 0.3, {backgroundColor: backgrounds[pageIndex]})
           .fromTo(currentIndex, 0.3, {opacity: 1, pointerEvents: 'all'}, {opacity: 0, pointerEvents: 'none'})
           .fromTo(nextIndex, 0.3, {opacity: 0, pointerEvents: 'none'}, {opacity: 1, pointerEvents: 'all'}, '-=0.6')
-          .fromTo(nextLeft, 0.3, {y: '-100%'}, {y:'-10%'}, '-=0.6')
-          .fromTo(nextRight, 0.3, {y: '-100%'}, {y:'10%'}, '-=0.8');
+          .fromTo(nextLeft, 0.3, {y: '150%'}, {y:'0%'}, '-=0.8')
+          .fromTo(nextRight, 0.3, {y: '-150%'}, {y:'0%'}, '-=0.8')
+          .fromTo(nextText, 0.3, {opacity: 0, y: 30}, {opacity: 1, y: 0})
+          .fromTo(centerText, 0.3, {opacity: 0, x: 10}, {opacity: 1, x: 0})
+          .fromTo(sidePlant, 0.3, {opacity: 0, x: 30}, {opacity: 1, x: 30})
+          .set(nextLeft, {clearProps: 'all'})
+          .set(nextRight, {clearProps: 'all'})
+          ;
 
         current = pageIndex;
     }
+
+    // nav hamburger
+    const hamburger = document.querySelector("#hamburger-container");
+    const navLinks = document.querySelector(".nav-links");
+    const links = document.querySelectorAll(".nav-links li");
+    const body = document.querySelector('body');
+
+    hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        links.forEach(link => link.classList.toggle("fade"));
+        body.style.overflowY = "hidden";
+    });
+    
 }
 
 init();
