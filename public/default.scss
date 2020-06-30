@@ -98,7 +98,7 @@ button {
             text-align: center;
             transform: translate(-40%, -30%);
             border: 1px solid #b4b4b4;
-            border-radius: 50% 45% 43%;
+            border-radius: 50% 45% 40%;
             cursor: pointer;
             animation: rotateRing 10s linear infinite;
             .center-info-project-container {
@@ -147,9 +147,17 @@ button {
         opacity: 0;
         pointer-events: none;
     }
+    .active-page {
+        opacity: 1;
+        pointer-events: all;
+    }
+    .not-active-page {
+        opacity: 0;
+        pointer-events: none;
+    }
     // ! end page class
 
-    .pagenation {
+    .pagination {
         position: absolute;
         right: 0;
         top: 50%;
@@ -181,7 +189,28 @@ button {
     width: 100vw;
     height: 100vh;
     background-color: color(bg);
-    transition: all .5s ;
+    transition: all .5s;
+    .loading-circle {
+        position: absolute;
+        width: 20vw;
+        min-width: 204px;
+        min-height: 204px;
+        max-width: 306px;
+        max-height: 306px;
+        height: 20vw;
+        left: 40%;
+        right: 0;
+        top: 35%;
+        text-align: center;
+        transform: translate(-40%, -35%);
+        border: 1px solid #b4b4b4;
+        border-radius: 50% 45% 40%;
+        cursor: pointer;
+        animation: rotateRing 10s linear infinite;
+    }
+    .loading-circle-two {
+        animation: rotateRing 10s linear infinite alternate-reverse;
+    }
   }
 
 
