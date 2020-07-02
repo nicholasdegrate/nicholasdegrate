@@ -120,7 +120,7 @@ function init() {
         const sidePlant = document.querySelector('.outer-img');
         const centerText = document.querySelectorAll('.center-header-container-wrapper h2');
         const navBackground = document.querySelector('.nav-links');
-
+        const aboutImage = document.querySelector('.about-header-img img');
         let tl = gsap.timeline();
 
         tl
