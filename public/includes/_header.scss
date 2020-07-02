@@ -27,7 +27,6 @@
         transform: translate(-4.5%, -5%);
         z-index: 60;
         h3 {
-            margin-top: .5em;
             padding: .5em;
             text-transform: uppercase;
             font-size: font(small) - .2em;
@@ -65,9 +64,10 @@
         width: 120%;
         flex-direction: column;
         clip-path: circle(0px at 90% -0%);
-        -webkit-clip-path: circle(0px at 0% 0%);
+        -webkit-clip-path: circle(0px at 90% -0%);
         transition: all 1s ease-out;
         pointer-events: none;
+        // this is circle nav
         .nav-container {
             position: absolute;
             width: 20vw;
@@ -81,6 +81,9 @@
             top: 20%;
             text-align: center;
             transform: translate(-40%, -20%);
+            -webkit-transform: translate(-40%, -20%);
+            -moz-transform: translate(-40%, -20%);
+            -ms-transform: translate(-40%, -20%);
         }
         li {
             opacity: 0;

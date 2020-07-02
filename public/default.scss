@@ -45,7 +45,7 @@ button {
         max-width: 1500px;
         margin: auto;
         display: grid;
-        grid-template-columns: 5% 1fr 1fr 1fr 1fr 1fr 5%;
+        grid-template-columns: 5% 1fr 1fr 1fr 5%;
         position: relative;
 
         .outer-img {
@@ -68,88 +68,24 @@ button {
             img {
                 height: 500px;
                 transition: transform 0.3s ease-out;
-                cursor: pointer;
             }
         }
         // right picture
         .center-page-right {
-            grid-column: 5/6;
-            height: 600px;
-            align-self: center;
-            justify-self: center;
-            -webkit-animation: action 2s infinite  alternate-reverse;
-            animation: action 2s infinite  alternate-reverse;
-            img {
-                height: 500px;
-                transition: transform 0.3s ease-out;
-                cursor: pointer;
-            }
+            display: none;
+            
         }
         // info bottom left corner
         .project-detail {
             grid-column: 2/3;
             align-self: end;
             margin-bottom: 3em;
-        }
-
-        // center circle info for the project
-        .center-link {
-            color: color(white);
-            outline: none;
-        }
-        .center-info-project {
-            position: absolute;
-            width: 20vw;
-            min-width: 204px;
-            min-height: 204px;
-            max-width: 306px;
-            max-height: 306px;
-            height: 20vw;
-            left: 40%;
-            right: 0;
-            top: 30%;
-            text-align: center;
-            transform: translate(-40%, -30%);
-            border: 1px solid #b4b4b4;
-            border-radius: 50% 45% 40%;
-            cursor: pointer;
-            animation: rotateRing 10s linear infinite;
-            .center-info-project-container {
-                width: 20vw;
-                min-width: 204px;
-                min-height: 204px;
-                max-width: 306px;
-                max-height: 306px;
-                height: 20vw;
-                border-radius: 50%;
-                position: relative;
-                // stops the text from spinning
-                animation: no-spin 10s linear infinite;
-                .center-header-container-wrapper {
-                    position: absolute;
-                    margin-left: auto;
-                    margin-right: auto;
-                    left: 0;
-                    right: 0;
-                    top: 50%;
-                    text-align: center;
-                    transform: translate(0%, -50%);
-                    h2 {
-                        font-size: font(medium);
-                        font-weight: 400;
-                    }
-                    p {
-                        font-size: font(small);
-                        font-weight: 300;
-                    }
-                    h2, p {
-                        text-transform: uppercase;
-                    }
-                }
+            a {
+                color: color(white);
             }
         }
-        .center-info-project-two {
-            animation: rotateRing 10s linear infinite alternate-reverse;
+        .center-link {
+            display: none;
         }
     }
     .plantie, .hotel {
@@ -185,6 +121,25 @@ button {
         }
         .active {
             background: #6d6d6d;
+        }
+    }
+
+    // social media
+    .social-media-container {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(0%,-50%);
+        z-index: 10;
+        height: 100px;
+        width: 50px;
+        padding: 1em;
+        .social-img-container {
+           padding: .5em;
+           img {
+               max-width: 25px;
+               max-height: 25px;
+           }
         }
     }
 }
@@ -257,17 +212,111 @@ button {
 }
 @keyframes no-spin {
     0% {
-        transform: rotate(360deg);
-    }
-    100% {
         transform: rotate(0deg);
     }
+    100% {
+        transform: rotate(360deg);
+    }
 }
+
+
+// media queries
 @media screen and (min-width: 1500px) {
     .outer-img {
         display: none;
     }
 }
+@media screen and (min-width: 800px) {
+    #main-wrapper {
+        .page {
+            grid-template-columns: 5% 1fr 1fr 1fr 1fr 1fr 5%;
+        }
+        // right picture
+        .center-page-right {
+            display: block !important;
+            grid-column: 5/6;
+            height: 600px;
+            align-self: center;
+            justify-self: center;
+            -webkit-animation: action 2s infinite  alternate-reverse;
+            animation: action 2s infinite  alternate-reverse;
+            img {
+                display: block;
+                height: 500px;
+                transition: transform 0.3s ease-out;
+            }
+        }
+
+        // center circle info for the project
+        .center-info-project {
+            position: absolute;
+            width: 20vw;
+            min-width: 204px;
+            min-height: 204px;
+            max-width: 306px;
+            max-height: 306px;
+            height: 20vw;
+            left: 40%;
+            right: 0;
+            top: 30%;
+            text-align: center;
+            transform: translate(-40%, -30%);
+            border: 1px solid #b4b4b4;
+            border-radius: 50% 45% 40%;
+            animation: rotateRing 10s linear infinite;
+        }
+        .center-info-project-two {
+            animation: rotateRing 10s linear infinite alternate-reverse;
+            .center-info-project-container {
+                width: 20vw;
+                min-width: 204px;
+                min-height: 204px;
+                max-width: 306px;
+                max-height: 306px;
+                height: 20vw;
+                border-radius: 50%;
+                position: relative;
+                // stops the text from spinning
+                animation: no-spin 10s linear infinite alternate;
+                .center-link {
+                    color: color(white);
+                    outline: none;
+                    background: red;
+                    display: block !important;
+                }
+                .center-header-container-wrapper {
+                    position: absolute;
+                    margin-left: auto;
+                    margin-right: auto;
+                    left: 0;
+                    right: 0;
+                    top: 50%;
+                    text-align: center;
+                    transform: translate(0%, -50%);
+                    // .center-link {
+                    //     color: color(white);
+                    //     outline: none;
+                    //     background: red;
+                    //     display: block !important;
+                    // }
+                    h2 {
+                        font-size: font(medium);
+                        font-weight: 400;
+                    }
+                    p {
+                        font-size: font(small);
+                        font-weight: 300;
+                    }
+                    h2, p {
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 // layout import
 @import 'includes/header';
 @import 'includes/about';

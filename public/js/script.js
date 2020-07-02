@@ -47,8 +47,8 @@ function init() {
     let scrollSlide = 0;
     
     // scrolling effect
-    document.addEventListener('touchmove', throttle(scrollchange, 1500));
-    document.addEventListener('wheel', throttle(scrollchange, 1500));
+    document.addEventListener('touchmove', throttle(scrollchange, 2500));
+    document.addEventListener('wheel', throttle(scrollchange, 2500));
     
     function scrollchange(e) {
         if (e.deltaY > 0) {
@@ -120,25 +120,29 @@ function init() {
         const sidePlant = document.querySelector('.outer-img');
         const centerText = document.querySelectorAll('.center-header-container-wrapper h2');
         const navBackground = document.querySelector('.nav-links');
+
         let tl = gsap.timeline();
 
-        tl.fromTo(currentLeft, 0.3, {y: '0%'}, {y: '150%'})
-          .fromTo(currentRight, 0.3, {y: '0%'}, {y: '-150%'}, '-=0.2')
+        tl
+          .fromTo(currentLeft, 0.3, {y: 100}, {y: '150%'})
+          .fromTo(currentRight, 0.3, {y: 100}, {y: '-150%'}, '-=0.1')
           .to(body, 0.3, {backgroundColor: backgrounds[pageIndex]})
           .to(navBackground, 0.3, {backgroundColor: backgrounds[pageIndex]})
           .fromTo(currentIndex, 0.3, {opacity: 1, pointerEvents: 'all'}, {opacity: 0, pointerEvents: 'none'})
           .fromTo(nextIndex, 0.3, {opacity: 0, pointerEvents: 'none'}, {opacity: 1, pointerEvents: 'all'}, '-=0.6')
           .fromTo(nextLeft, 0.3, {y: '150%'}, {y:'0%'}, '-=0.8')
           .fromTo(nextRight, 0.3, {y: '-150%'}, {y:'0%'}, '-=0.8')
+          .fromTo(centerText, 0.3, {opacity: 0, x: 30}, {opacity: 1, x: 0})
           .fromTo(nextText, 0.3, {opacity: 0, y: 30}, {opacity: 1, y: 0})
-          .fromTo(centerText, 0.3, {opacity: 0, x: 10}, {opacity: 1, x: 0})
-          .fromTo(sidePlant, 0.3, {opacity: 0, x: 30}, {opacity: 1, x: 30})
+          .fromTo(sidePlant, 0.2, {opacity: 0, x: 30}, {opacity: 1, x: 30})
           .set(nextLeft, {clearProps: 'all'})
           .set(nextRight, {clearProps: 'all'})
+          .set(centerText, {clearProps: 'all'})
           ;
-
         current = pageIndex;
     }
+
+    // about bacakground
 
     // nav hamburger
     const hamburger = document.querySelector("#hamburger-container");
