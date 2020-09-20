@@ -1,0 +1,19 @@
+$maxWidth: 1400px;
+$colors: (
+  mainColor: #26272a,
+  mainAccent: #59636a,
+  redish: #693e2e,
+  bluish: #03c3b2,
+  orange3: #ff6610,
+);
+
+// filter through colors
+
+@function getColor($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+
+  @warn "unknown `#{key}` color";
+  @return null;
+}
