@@ -97,8 +97,15 @@ export const Home = () => {
             <ul>
               <h3>Tools</h3>
               <li>Git</li>
+              <li>github</li>
               <li>Command Line</li>
               <li>Nignx</li>
+              <li>Figma</li>
+              <li>Adobe XD</li>
+              <li>Google analytics</li>
+              <li>SEO</li>
+              <li>Chakra-ui</li>
+              <li>bootstrap</li>
             </ul>
           </div>
         </section>
